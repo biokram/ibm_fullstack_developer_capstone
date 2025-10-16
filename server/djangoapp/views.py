@@ -127,15 +127,6 @@ def add_review(request):
     else:
         return JsonResponse({"status":403,"message":"Unauthorized"})
 
-def post_review(data_dict):
-    request_url = backend_url+"/insert_review"
-    try:
-        response = requests.post(request_url,json=data_dict)
-        print(response.json())
-        return response.json()
-    except:
-        print("Network exception occurred")
-
 def get_cars(request):
     count = CarMake.objects.filter().count()
     print(count)
