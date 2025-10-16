@@ -5,6 +5,7 @@ from .models import CarMake, CarModel
 
 # Register your models here.
 
+
 # CarModelInline class
 class CarModelInline(admin.StackedInline):
     '''Inline admin interface for CarModel within CarMake admin.'''
@@ -15,16 +16,16 @@ class CarModelInline(admin.StackedInline):
 class CarModelAdmin(admin.ModelAdmin):
     '''Admin interface for CarModel.'''
     fields = [
-        'CarMake', 
-        'name', 
-        'car_type', 
-        'year', 
-        'color', 
-        'mileage', 
-        'transmission', 
-        'description', 
-        'price', 
-        'is_available', 
+        'CarMake',
+        'name',
+        'car_type',
+        'year',
+        'color',
+        'mileage',
+        'transmission',
+        'description',
+        'price',
+        'is_available',
     ]
 
 
@@ -32,10 +33,10 @@ class CarModelAdmin(admin.ModelAdmin):
 class CarMakeAdmin(admin.ModelAdmin):
     '''Admin interface for CarMake with inline CarModel.'''
     fields = [
-        'name', 
-        'description', 
-        'country', 
-        'is_active', 
+        'name',
+        'description',
+        'country',
+        'is_active',
     ]
     inlines = [CarModelInline]
 
