@@ -1,3 +1,5 @@
+'''Admin configuration for CarMake and CarModel models.'''
+
 from django.contrib import admin
 from .models import CarMake, CarModel
 
@@ -5,11 +7,13 @@ from .models import CarMake, CarModel
 
 # CarModelInline class
 class CarModelInline(admin.StackedInline):
+    '''Inline admin interface for CarModel within CarMake admin.'''
     model = CarModel
 
 
 # CarModelAdmin class
 class CarModelAdmin(admin.ModelAdmin):
+    '''Admin interface for CarModel.'''
     fields = [
         'CarMake', 
         'name', 
@@ -26,14 +30,14 @@ class CarModelAdmin(admin.ModelAdmin):
 
 # CarMakeAdmin class with CarModelInline
 class CarMakeAdmin(admin.ModelAdmin):
+    '''Admin interface for CarMake with inline CarModel.'''
     fields = [
         'name', 
         'description', 
         'country', 
         'is_active', 
     ]
-    
-    inlines = [CarModelInline] 
+    inlines = [CarModelInline]
 
 
 admin.site.register(CarMake, CarMakeAdmin)
